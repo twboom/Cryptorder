@@ -32,7 +32,16 @@ def decrypt(file, offset):
         newChar = characters[index - offset]
         decrypted.append(newChar)
 
-path = input('Please specify file to encrypt: ')
+def stringify(chars):
+    string = ''
+    for char in chars:
+        string += char
+    return string
+
+
+path = input('Please specify file to: ')
 offset = int(input('Please set the seed: '))
 file = open(path, 'r')
-print(encrypt(file.read(), offset))
+output = encrypt(file.read(), offset)
+print(output)
+print(stringify(output))
