@@ -14,8 +14,8 @@ def encrypt(file, offset):
         index = characters.index(char)
         if (index +  offset) > len(characters):
             difference = len(characters) - index
-            remainder = len(characters) - difference
-        index = remainder
+            remainder = index - difference
+            index = remainder
         newChar = characters[index + offset]
         encrypted.append(newChar)
     return encrypted
