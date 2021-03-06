@@ -19,7 +19,18 @@ def encrypt(file, offset):
         newChar = characters[index + offset]
         encrypted.append(newChar)
     return encrypted
-        
+
+def decrypt(file, offset):
+    chars = list(file)
+    decrypted = []
+    for char in chars:
+        index = characters.index(char)
+        if (index +  offset) > len(characters):
+            difference = len(characters) - index
+            remainder = index - difference
+            index = remainder
+        newChar = characters[index - offset]
+        decrypted.append(newChar)
 
 path = input('Please specify file to encrypt: ')
 offset = int(input('Please set the seed: '))
